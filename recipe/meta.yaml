@@ -1,5 +1,5 @@
 {% set name = "jasp" %}
-{% set version = "0.14.1.0" %}
+{% set version = "0.14.3" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/jasp-stats/jasp-desktop/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: b71eed29ce631d0a9c19004fec75f528105d75e3b1957a781d1c19ef28559be0
+  sha256: bafcf2c565e45d5254518c77cebc65d7890335904bea7cea21357e4ec0a52c14
 
 build:
   number: 0
@@ -86,7 +86,7 @@ requirements:
     - r-rlang
     - r-scales
     - r-stringr
-    - r-viridislite    
+    - r-viridislite
     - r-rcpp
     - r-rinside
     - r-kknn
@@ -462,7 +462,7 @@ requirements:
     - boost
     - boost-cpp
     - zlib
-    - readstat    
+    - readstat
     - r-abind
     - r-abtest
     - r-acepack
@@ -814,7 +814,7 @@ requirements:
     - r-vipor
     - r-viridis
     - r-viridislite
-    - r-viridislite    
+    - r-viridislite
     - r-visnetwork
     - r-waldo
     - r-weightr
@@ -841,7 +841,7 @@ about:
   home: http://jasp-stats.org/
   license: AGPL-3.0-only
   license_file: COPYING.txt
-  summary: 'A fresh way to do statistics'
+  summary: A fresh way to do statistics
 
 extra:
   recipe-maintainers:
