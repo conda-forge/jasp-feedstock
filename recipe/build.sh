@@ -17,6 +17,7 @@ export JASP_R_HOME=${PREFIX}/lib/R
 export "CURRENT_R_VERSION=$(Rscript -e 'cat(substr(paste(R.Version()[c("major", "minor")], collapse = "."),1,3))')"
 
 ## should make this a proper patch instead ...
+sed -i 's:ggsave(:ggsave(units="px",:g' JASP-R-Interface/jaspResults/R/writeImage.R ## needs to be fixed upstream
 sed -i "s:15:12:g" JASP-Desktop/components/JASP/Widgets/VariablesWindow.qml ## DROP WHEN QT 5.15 lands in conda-forge
 sed -i "s/^CURRENT_R_VERSION.*/CURRENT_R_VERSION = ${CURRENT_R_VERSION}/g" JASP.pri
 sed -i "s:/usr/:${PREFIX}/:g" JASP-Desktop/gui/preferencesmodel.cpp
