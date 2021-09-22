@@ -30,6 +30,9 @@ cd build
 
 mkdir -p ${PREFIX}/lib/JASP
 
+## not sure about this...
+export GITHUB_PAT=Z2hwX1FVQmt2dWk0WFV5SWJrN0VKc2JUWWVnTzFaVnQxbzROWmxwdwo
+
 ## don't know if there is a better way than listing out all the library and
 ## include directories here, but qmake doesn't seem to find them otherwise
 qmake \
