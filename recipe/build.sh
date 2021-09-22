@@ -21,10 +21,9 @@ export "CURRENT_R_VERSION=$(Rscript -e 'cat(substr(paste(R.Version()[c("major", 
 #sed -i "s:15:12:g" JASP-Desktop/components/JASP/Widgets/VariablesWindow.qml ## DROP WHEN QT 5.15 lands in conda-forge
 sed -i "s/^CURRENT_R_VERSION.*/CURRENT_R_VERSION = ${CURRENT_R_VERSION}/g" JASP.pri
 sed -i "s:/usr/:${PREFIX}/:g" Desktop/gui/preferencesmodel.cpp
-sed -i "s:/usr/:${PREFIX}/:g" Desktop/JASP-Desktop.pro
+sed -i "s:/usr/:${PREFIX}/:g" Desktop/Desktop.pro
 sed -i "s:/usr/:${PREFIX}/:g" JASP.pri
 sed -i "s:/usr/:${PREFIX}/:g" Desktop/utilities/appdirs.cpp
-#sed -i "s:/usr/:${PREFIX}/:g" JASP-Desktop/JASP-Desktop.pro
 
 mkdir build
 cd build
