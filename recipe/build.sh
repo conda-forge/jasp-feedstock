@@ -68,7 +68,7 @@ make -j$CPU_COUNT || make -j$CPU_COUNT || make
 
 ## make install
 mkdir -p ${PREFIX}/lib/JASP
-rm -rf  JASP-Common JASP-Desktop JASP-Engine JASP-R-Interface
+rm -rf  Common Desktop Engine R-Interface
 rsync -a --ignore-existing ./ ${PREFIX}/lib/JASP/
 ln -sfr ${PREFIX}/lib/JASP/jasp ${PREFIX}/bin/
 
