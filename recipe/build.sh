@@ -16,6 +16,13 @@ export _R_HOME=${PREFIX}/lib/R
 export JASP_R_HOME=${PREFIX}/lib/R
 export "CURRENT_R_VERSION=$(Rscript -e 'cat(substr(paste(R.Version()[c("major", "minor")], collapse = "."),1,3))')"
 
+rm -rf ./*
+git clone --depth=500 https://github.com/jasp-stats/jasp-desktop.git
+rsync -a ./jasp-desktop/ ./
+rm -rf jasp-desktop
+git checkout v0.15.0
+git submodule init && git submodule update
+
 ## should make this a proper patch instead ...
 #sed -i 's:ggsave(:ggsave(units="px",:g' JASP-R-Interface/jaspResults/R/writeImage.R ## needs to be fixed upstream
 #sed -i "s:15:12:g" JASP-Desktop/components/JASP/Widgets/VariablesWindow.qml ## DROP WHEN QT 5.15 lands in conda-forge
@@ -35,6 +42,35 @@ export GITHUB_PAT=Z2hwX1FVQmt2dWk0WFV5SWJrN0VKc2JUWWVnTzFaVnQxbzROWmxwdwo
 
 ## don't know if there is a better way than listing out all the library and
 ## include directories here, but qmake doesn't seem to find them otherwise
+qmake \
+    PREFIX=$PREFIX \
+    INSTALLPATH=${PREFIX}/lib/JASP/ \
+    CONFIG+=release \
+    JASP_R_HOME=${PREFIX}/lib/R \
+    R_HOME=${PREFIX}/lib/R \
+    _R_HOME=${PREFIX}/lib/R \
+    JASP_R_HOME=${PREFIX}/lib/R \
+    CURRENT_R_VERSION=${CURRENT_R_VERSION} \
+    QMAKE_CC=$(basename ${CC}) \
+    QMAKE_CXX=$(basename ${CXX}) \
+    QMAKE_LINK=$(basename ${CXX}) \
+    QMAKE_RANLIB=$(basename ${RANLIB}) \
+    QMAKE_OBJDUMP=$(basename ${OBJDUMP}) \
+    QMAKE_STRIP=$(basename ${STRIP}) \
+    QMAKE_AR="$(basename ${AR}) cqs" \
+    "QMAKE_LIBDIR+=${PREFIX}/lib" \
+    "QMAKE_LIBDIR+=${BUILD_PREFIX}x86_64-conda-linux-gnu/sysroot/usr/lib" \
+    "QMAKE_LIBDIR+=${PREFIX}/lib/R/lib" \
+    "QMAKE_LIBDIR+=${PREFIX}/lib/R/library/Rcpp/libs" \
+    "QMAKE_LIBDIR+=${PREFIX}/lib/R/library/RInside/lib" \
+    "INCLUDEPATH+=${PREFIX}/include" \
+    "INCLUDEPATH+=${BUILD_PREFIX}/x86_64-conda-linux-gnu/sysroot/usr/include" \
+    "INCLUDEPATH+=${PREFIX}/lib/R/include" \
+    "INCLUDEPATH+=${PREFIX}/lib/R/library/Rcpp/include" \
+    "INCLUDEPATH+=${PREFIX}/lib/R/library/RInside/include" \
+    "INCLUDEPATH+=${PREFIX}/include/boost" \
+    ../R-Interface/R-Interface.pro
+
 qmake \
     PREFIX=$PREFIX \
     INSTALLPATH=${PREFIX}/lib/JASP/ \
