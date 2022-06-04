@@ -10,7 +10,7 @@ source:
   sha256: bafcf2c565e45d5254518c77cebc65d7890335904bea7cea21357e4ec0a52c14
 
 build:
-  number: 2
+  number: 3
   ## windows and osx builds can be added later, I currently don't have either for local testing
   skip: true  # [not linux]
   rpaths:
@@ -71,7 +71,7 @@ requirements:
     - boost-cpp
     - libarchive
     - tk
-    - qt
+    - qt-main
     - zlib
     - readstat
     - r-base
