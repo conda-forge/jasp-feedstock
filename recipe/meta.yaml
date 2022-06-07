@@ -29,6 +29,8 @@ requirements:
     - rsync
     - coreutils
     - pkg-config
+    - {{ cdt('libxrandr') }}  # [linux]
+    - {{ cdt('libxrandr-devel') }}  # [linux]
     - {{ cdt('expat-devel') }}  # [linux]
     - {{ cdt('libxfixes-devel') }}  # [linux]
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
@@ -67,6 +69,7 @@ requirements:
     - xorg-libxi  # [linux]
     - xorg-libxtst  # [linux]
     - xorg-libxcursor  # [linux]
+    - xorg-libxrandr  # [linux]
     - boost
     - boost-cpp
     - libarchive
