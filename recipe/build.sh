@@ -6,6 +6,8 @@ set -x
 ln -s ${CXX} ${PREFIX}/bin/g++ || true
 ln -s ${CXX} ${PREFIX}/bin/gcc || true
 
+export CFLAGS="${CFLAGS} -Wno-error"
+export CXXFLAGS="${CXXFLAGS} -Wno-error"
 export QMAKE_CXXFLAGS+=${CXXFLAGS}
 export QMAKE_CFLAGS+=${CFLAGS}
 export QMAKE_LFLAGS+=${LDFLAGS}
@@ -18,7 +20,6 @@ export "CURRENT_R_VERSION=$(Rscript -e 'cat(substr(paste(R.Version()[c("major", 
 
 ## should make this a proper patch instead ...
 sed -i 's:ggsave(:ggsave(units="px",:g' JASP-R-Interface/jaspResults/R/writeImage.R ## needs to be fixed upstream
-sed -i "s:15:12:g" JASP-Desktop/components/JASP/Widgets/VariablesWindow.qml ## DROP WHEN QT 5.15 lands in conda-forge
 sed -i "s/^CURRENT_R_VERSION.*/CURRENT_R_VERSION = ${CURRENT_R_VERSION}/g" JASP.pri
 sed -i "s:/usr/:${PREFIX}/:g" JASP-Desktop/gui/preferencesmodel.cpp
 sed -i "s:/usr/:${PREFIX}/:g" JASP-Desktop/JASP-Desktop.pro
@@ -49,6 +50,8 @@ qmake \
     QMAKE_OBJDUMP=$(basename ${OBJDUMP}) \
     QMAKE_STRIP=$(basename ${STRIP}) \
     QMAKE_AR="$(basename ${AR}) cqs" \
+    QMAKE_CFLAGS="${QMAKE_CFLAGS}" \
+    QMAKE_CXXFLAGS="${QMAKE_CXXFLAGS}" \
     "QMAKE_LIBDIR+=${PREFIX}/lib" \
     "QMAKE_LIBDIR+=${BUILD_PREFIX}x86_64-conda-linux-gnu/sysroot/usr/lib" \
     "QMAKE_LIBDIR+=${PREFIX}/lib/R/lib" \
