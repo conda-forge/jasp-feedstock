@@ -1,0 +1,24 @@
+From 516d9f38364e92376ae681a3a3fbbcef69a05290 Mon Sep 17 00:00:00 2001
+From: Ista Zahn <izahn@hbs.edu>
+Date: Sun, 16 Oct 2022 11:07:44 -0400
+Subject: [PATCH] relax werror return-type
+
+---
+ JASP.pri | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/JASP.pri b/JASP.pri
+index b4fd07e..abc00b9 100644
+--- a/JASP.pri
++++ b/JASP.pri
+@@ -89,7 +89,6 @@ windows {
+ 	QMAKE_CXXFLAGS	+= -DBOOST_USE_WINDOWS_H -DNOMINMAX -DBOOST_INTERPROCESS_BOOTSTAMP_IS_SESSION_MANAGER_BASED
+ }
+ 
+-unix: QMAKE_CXXFLAGS += -Werror=return-type
+ 
+ #want to use JASPTIMER_* ? set JASPTIMER_USED to true, run qmake and rebuild the objects that use these macros (or just rebuild everything to be sure)
+ JASPTIMER_USED = false
+-- 
+2.38.0
+
