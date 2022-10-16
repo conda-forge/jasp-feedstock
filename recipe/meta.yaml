@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/jasp-stats/jasp-desktop/archive/refs/tags/v{{ version }}.tar.gz
   sha256: bafcf2c565e45d5254518c77cebc65d7890335904bea7cea21357e4ec0a52c14
+  patches:
+    - 0001-relax-werror-return-type.patch
 
 build:
   number: 3

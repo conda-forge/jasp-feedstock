@@ -1,7 +1,7 @@
 boost:
-- 1.74.0
+- 1.78.0
 boost_cpp:
-- 1.74.0
+- 1.78.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -30,14 +30,10 @@ pin_run_as_build:
   r-base:
     min_pin: x.x
     max_pin: x.x
-  tk:
-    max_pin: x.x
-  zlib:
-    max_pin: x.x
 qt_main:
 - '5.15'
 r_base:
-- '4.0'
+- '4.1'
 target_platform:
 - linux-64
 tk:
