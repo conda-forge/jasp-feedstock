@@ -30,10 +30,6 @@ pin_run_as_build:
   r-base:
     min_pin: x.x
     max_pin: x.x
-  tk:
-    max_pin: x.x
-  zlib:
-    max_pin: x.x
 qt_main:
 - '5.15'
 r_base:
