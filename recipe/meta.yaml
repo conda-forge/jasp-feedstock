@@ -1,5 +1,5 @@
 {% set name = "jasp" %}
-{% set version = "0.14.3" %}
+{% set version = "0.17.0" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/jasp-stats/jasp-desktop/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: bafcf2c565e45d5254518c77cebc65d7890335904bea7cea21357e4ec0a52c14
+  sha256: 6f4a8496e54a77daeae1e3826581559b7d122dde1cae67e08a30cc9b4842c239
 
 build:
-  number: 4
+  number: 0
   ## windows and osx builds can be added later, I currently don't have either for local testing
   skip: true  # [not linux]
   rpaths:
