@@ -25,6 +25,7 @@ requirements:
     - {{ compiler('cxx') }}
     - sysroot_linux-64 2.17  # [linux64]
     - make
+    - cmake
     - sed
     - rsync
     - coreutils
@@ -70,8 +71,8 @@ requirements:
     - xorg-libxtst  # [linux]
     - xorg-libxcursor  # [linux]
     - xorg-libxrandr  # [linux]
-    - boost
     - boost-cpp
+    - jsoncpp
     - libarchive
     - tk
     - qt-main
@@ -463,8 +464,8 @@ requirements:
     - r-zip
     - r-zoo
   run:
-    - boost
     - boost-cpp
+    - jsoncpp
     - qt-main
     - qt-webengine
     - zlib
