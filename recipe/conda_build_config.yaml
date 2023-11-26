@@ -1,0 +1,5 @@
+# too old to use newer compilers with -Werror
+c_compiler_version:     # [linux]
+  - 10                  # [linux]
+cxx_compiler_version:   # [linux]
+  - 10                  # [linux]
