@@ -21,7 +21,7 @@ expat:
 jsoncpp:
 - 1.9.5
 libarchive:
-- '3.6'
+- '3.7'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
@@ -31,7 +31,7 @@ pin_run_as_build:
 qt_main:
 - '5.15'
 r_base:
-- '4.2'
+- '4.3'
 target_platform:
 - linux-64
 tk:
